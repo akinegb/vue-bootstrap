@@ -7,7 +7,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "jest -c config/jest.config.js",
+    "test": "jest -c config/jest.config.js --watch",
     "unit": "jest -c config/jest.config.unit.js",
     "integration": "jest -c config/jest.config.integration.js"
   },
