@@ -15,8 +15,17 @@
 <style lang="scss">
   button {
     border: 0 transparent solid;
-    background: #dfdfdf;
+    color: white;
+    background: black;
     padding: 15px 35px;
     font-size: 1em;
+
+    &.left {
+      float: left;
+    }
+
+    &.margin {
+      margin: 16px 0;
+    }
   }
 </style>

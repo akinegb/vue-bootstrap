@@ -2,6 +2,11 @@ import axios from 'axios';
 
 export default class ApiService {
 
+  constructor(url) {
+    this.baseUrl = '/';
+    this.url = this.baseUrl + url;
+  }
+
   getAuthHeaders({hash, timestamp, token}) {
     const header = {
       'ACCEPT': 'application/json',
@@ -13,4 +18,23 @@ export default class ApiService {
     return header;
   }
 
+  get(id) {
+    return axios.get(this.url + '/' + id)
+  }
+
+  getAll() {
+
+  }
+
+  post() {
+
+  }
+
+  put(id) {
+
+  }
+
+  patch() {
+
+  }
 }

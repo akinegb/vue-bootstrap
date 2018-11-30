@@ -1,9 +1,8 @@
 <template>
   <label class="input-row">
-    <span>{{name}}:</span>
+    <span>{{name}}</span>
     <input
       :class="inputStatus"
-      :placeholder="!inputStatus ? name : '' "
       v-on:focus="setStatus"
       v-on:blur="setStatus"/>
   </label>
@@ -16,29 +15,37 @@
         this.inputStatus = e.type === "focus" ? "active" : ""
       }
     },
-    data: () => {
-      return { inputStatus: "" };
-    },
+    data: () => ({
+      inputStatus: ""
+    }),
   };
 </script>
 <style lang="scss">
   .input-row {
     display: block;
     padding: 0 0 8px;
+    margin: 0 0 20px;
 
     span {
-      display: none;
-      text-align: right;
+      display: block;
+      text-align: left;
       padding: 0 10px;
-      min-width: 120px;
+      width: calc(100% - 30px);
+      font-size: 1em;
     }
 
     input {
-      border: #d4d4d4 1px solid;
+      border-color: #d4d4d4;
+      border-width: 0 0 1px 0;
+      border-style: solid;
       display: inline-block;
-      padding: 16px 12px;
+      padding: 24px 12px 8px 0;
       font-size: 1em;
-      min-width: 280px;
+      width: calc(100% - 30px);
+
+      &:focus {
+        outline: 0 solid transparent;
+      }
     }
   }
 </style>
