@@ -1,10 +1,22 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 // import { renderToString } from '@vue/server-test-utils';
 import Form from "../src/components/Form.vue";
+import Vuex from 'vuex';
+
+const localVue = createLocalVue();
+
+localVue.use(Vuex);
 
 describe("Form component", () => {
+  let store;
+  beforeEach(() => {
+    store = new Vuex.Store({
+      state: {}
+    })
+  });
+
   it("should contain aleast one field", () => {
-    const wrapper = shallowMount(Form);
+    const wrapper = shallowMount(Form, { store, localVue });
     expect(wrapper.findAll('.form').length).toEqual(1);
   });
 });

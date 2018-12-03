@@ -15,9 +15,9 @@ import Button from './Button';
 export default {
   components: { Input, Button },
   computed: {
-    questions: ({$store}) => {
-      const { state: questions } = $store || {}
-      return questions || {}
+    questions: function() {
+      const { $store: { state: { questions: questions }  }} = this || {}
+      return questions
     }
   }
 }
