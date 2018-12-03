@@ -1,5 +1,5 @@
 <template>
-  <form class="form">
+  <form v-on:click="checkState" class="form">
     <Input
       v-for="(item, index) in questions"
       v-bind:key="item.id"
@@ -14,12 +14,17 @@ import Input from './Input';
 import Button from './Button';
 export default {
   components: { Input, Button },
-  data: () => ({
-    questions: [
-      { id: 1, question: "What is the name of your software?" },
-      { id: 2, question: "Where would you like to have it deployed?" },
-      { id: 3, question: "Is the software licence already procured?" },
-    ]
-  })
+  computed: {
+    questions: ({$store}) => {
+      return $store.state.questions
+    }
+  },
+  methods: {
+    checkState: function() {
+      // eslint-disable-next-line
+      console.log(this.$store.state)
+      return "test"
+    }
+  }
 }
 </script>
