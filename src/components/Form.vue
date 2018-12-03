@@ -1,5 +1,5 @@
 <template>
-  <form v-on:click="checkState" class="form">
+  <form class="form">
     <Input
       v-for="(item, index) in questions"
       v-bind:key="item.id"
@@ -16,14 +16,8 @@ export default {
   components: { Input, Button },
   computed: {
     questions: ({$store}) => {
-      return $store.state.questions
-    }
-  },
-  methods: {
-    checkState: function() {
-      // eslint-disable-next-line
-      console.log(this.$store.state)
-      return "test"
+      const { state: questions } = $store || {}
+      return questions || {}
     }
   }
 }
