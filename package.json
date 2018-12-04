@@ -5,7 +5,7 @@
   "author": "Akin Egbewole",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run unit && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "jest -c config/jest.config.js --watch",
     "unit": "jest -c config/jest.config.unit.js",

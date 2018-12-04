@@ -3,11 +3,9 @@
 </template>
 <script>
   export default {
-    props: ['name'],
+    props: ["name"],
     methods: {
       submit: () => {
-        /* eslint-disable */
-        console.warn('submitted form')
       }
     }
   }

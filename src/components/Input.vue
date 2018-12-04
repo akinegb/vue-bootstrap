@@ -1,24 +1,27 @@
 <template>
-  <label class="input-row">
-    <span>{{name}}</span>
+  <label
+    class="input-row">
+    <span>{{ label }}</span>
     <input
       :class="inputStatus"
+      :type="type"
       v-on:focus="setStatus"
       v-on:blur="setStatus"/>
   </label>
 </template>
 <script>
-  export default {
-    props: ['name'],
-    methods: {
-      setStatus: function (e) {
-        this.inputStatus = e.type === "focus" ? "active" : ""
-      }
-    },
-    data: () => ({
-      inputStatus: ""
-    }),
-  };
+export default {
+  name: "Input",
+  props: ["label", "type"],
+  methods: {
+    setStatus: function (e) {
+      this.inputStatus = e.type === "focus" ? "active" : ""
+    }
+  },
+  data: () => ({
+    inputStatus: ""
+  }),
+};
 </script>
 <style lang="scss">
   .input-row {

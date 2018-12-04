@@ -1,22 +1,33 @@
 <template>
   <form class="form">
-    <Input
+    <div
       v-for="(item, index) in questions"
       v-bind:key="item.id"
-      v-bind:index="index"
-      :name="item.question"/>
+      v-bind:index="index">
+      <Input
+        v-bind:type="item.type"
+        v-bind:label="item.label"
+        v-bind:field="item"/>
+      <RadioButton
+        v-bind:type="item.type"
+        v-bind:label="item.label"
+        v-bind:options="item.options"
+        v-bind:name="item.name"
+        v-bind:RadioButton="item"/>
+    </div>
     <Button class="left margin" name="Next"/>
   </form>
 </template>
 
 <script>
-import Input from './Input';
-import Button from './Button';
+import RadioButton from "./RadioButton";
+import Input from "./Input";
+import Button from "./Button";
 export default {
-  components: { Input, Button },
+  components: { Input, Button, RadioButton },
   computed: {
-    questions: function() {
-      const { $store: { state: { questions: questions }  }} = this || {}
+    questions: ({$store}) => {
+      const { state: { questions } } = $store || {}
       return questions
     }
   }
