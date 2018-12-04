@@ -26,8 +26,14 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
   .checkbox-group {
     text-align: left;
+    margin: 0 0 20px;
+
+    label {
+      padding: 0 0 15px;
+      display: inline-block;
+    }
   }
 </style>

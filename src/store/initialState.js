@@ -13,12 +13,6 @@ module.exports = {
       },
       {
         type: "text",
-        name: "location",
-        label: "Where would you like to have it deployed?",
-        value: "London, UK"
-      },
-      {
-        type: "text",
         name: "licence",
         label: "Is the software licence already procured?",
         value: "Probably"
@@ -67,7 +61,12 @@ module.exports = {
           }
         ]
       },
-
+      {
+        type: "textarea",
+        name: "name",
+        label: "Describe in short what this software is used for?",
+        value: "blah blah blah..."
+      }
     ],
     notifications: {},
     validations: {}

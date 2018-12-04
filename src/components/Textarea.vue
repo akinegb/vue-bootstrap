@@ -1,12 +1,11 @@
 <template>
   <label
-    class="input-row">
+    class="textarea">
     <span>{{ label }}</span>
-    <input
+    <textarea
       :class="inputStatus"
-      :type="type"
       :id="label"
-      v-model="text"
+      v-model="textarea"
       v-on:focus="setStatus"
       v-on:blur="setStatus"/>
   </label>
@@ -22,33 +21,40 @@ export default {
   },
   data: ({$options}) => {
     const { propsData: { value } } = $options || {}
-    const text = value || ''
-    return { text, inputStatus: "" };
+    const textarea = value || ''
+    return { textarea, inputStatus: "" };
   }
 };
 </script>
 <style lang="scss">
-  .input-row {
+  .textarea {
     display: block;
     padding: 0 0 8px;
     margin: 0 0 20px;
 
+    label {
+      padding: 0 0 20px;
+    }
+
     span {
       display: block;
       text-align: left;
-      padding: 0 0 10px;
-      width: 100%;
+      padding: 0 0 10px 0;
+      width: calc(100% - 30px);
       font-size: 1em;
     }
 
-    input {
+    textarea {
+      background: #f6f6f6;
       border-color: #d4d4d4;
       border-width: 0 0 1px 0;
       border-style: solid;
       display: inline-block;
-      padding: 24px 0 8px 0;
+      padding: 12px;
       font-size: 1em;
-      width: 100%;
+      width: calc(100% - 30px);
+      height: 100px;
+      resize: none;
 
       &:focus {
         outline: 0 solid transparent;
