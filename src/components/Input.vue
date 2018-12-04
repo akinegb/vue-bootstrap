@@ -5,6 +5,8 @@
     <input
       :class="inputStatus"
       :type="type"
+      :id="label"
+      v-model="text"
       v-on:focus="setStatus"
       v-on:blur="setStatus"/>
   </label>
@@ -12,15 +14,17 @@
 <script>
 export default {
   name: "Input",
-  props: ["label", "type"],
+  props: ["label", "type", "value"],
   methods: {
     setStatus: function (e) {
       this.inputStatus = e.type === "focus" ? "active" : ""
     }
   },
-  data: () => ({
-    inputStatus: ""
-  }),
+  data: ({$options}) => {
+    const { propsData: { value } } = $options || {}
+    const text = value || ''
+    return { text, inputStatus: "" };
+  }
 };
 </script>
 <style lang="scss">

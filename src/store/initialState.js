@@ -6,40 +6,65 @@ module.exports = {
     user: {},
     questions: [
       {
-        id: 1,
         type: "text",
         name: "name",
         label: "What is the name of your software?",
+        value: ""
       },
       {
-        id: 2,
         type: "text",
         name: "location",
         label: "Where would you like to have it deployed?",
+        value: "London, UK"
       },
       {
-        id: 3,
         type: "text",
         name: "licence",
         label: "Is the software licence already procured?",
+        value: "Probably"
       },
       {
-        id: 4,
         type: "radio",
         label: "What OS does this software run on?",
         name: "what-os",
         options: [
           {
-            id: 5,
             label: "MacOSX",
-            value: "false"
+            value: 1
           },
           {
-            id: 6,
             label: "Windows",
-            value: "false"
+            value: 0
           }
 
+        ]
+      },
+      {
+        id: 5,
+        type: "checkbox",
+        label: "What are te regions you intend to deploy to?",
+        name: "what-os",
+        options: [
+          {
+            label: "Europe",
+            value: 0
+          },
+          {
+            label: "North America",
+            value: 0
+          },
+          {
+            label: "South America",
+            value: 1
+          },
+          {
+            label: "West Africa",
+            value: 1
+          },
+          {
+            label: "Asia",
+            value: 1
+          }
         ]
       },
 

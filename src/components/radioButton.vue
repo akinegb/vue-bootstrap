@@ -7,6 +7,9 @@
       v-bind:index="index"
       v-bind:key="item.id">
       <input
+        v-model="selected"
+        :id="item.label.toLowerCase()"
+        :value="item.label"
         :type="type"
         :name="name"/>
       <span>{{ item.label }}</span>
@@ -16,7 +19,13 @@
 <script>
 export default {
   name: "RadioButton",
-  props: ["label", "type", "name", "options"]
+  props: ["label", "type", "name", "options"],
+  data: ({$options}) => {
+    const { propsData: { options } } = $options || {}
+    const selected = options.map(el => el.value ? el.label : null)[0]
+    // const selected = options ? options.map(el => el.value ? el.label : null)[0] : ''
+    return { selected };
+  }
 }
 </script>
 <style>

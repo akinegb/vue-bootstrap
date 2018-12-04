@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from "@vue/test-utils";
-import { render } from "@vue/server-test-utils"
+// import { render } from "@vue/server-test-utils"
 import Vuex from "vuex";
-import RadioButton from "../src/components/RadioButton.vue";
+import CheckBox from "../src/components/CheckBox.vue";
 
 const localVue = createLocalVue();
 
@@ -16,7 +16,7 @@ describe("Radio buttons", () => {
   });
 
   it("mounted as expected", () => {
-    const wrapper = mount(RadioButton, { propData });
-    expect(wrapper.findAll(".radio-group").length).toEqual(1)
+    const wrapper = mount(CheckBox, { propData });
+    expect(wrapper.findAll(".checkbox-group").length).toEqual(1)
   });
 });
