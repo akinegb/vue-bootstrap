@@ -24,10 +24,38 @@ module.exports = {
         options: [
           {
             label: "MacOSX",
-            value: 1
+            value: 0
           },
           {
             label: "Windows",
+            value: 1
+          }
+
+        ]
+      },
+      {
+        type: "select",
+        label: "What OS does this software run on?",
+        name: "what-os",
+        options: [
+          {
+            label: "Windows",
+            value: 0
+          },
+          {
+            label: "MacOSX",
+            value: 0
+          },
+          {
+            label: "Unix",
+            value: 1
+          },
+          {
+            label: "Redhat",
+            value: 0
+          },
+          {
+            label: "Ubuntu",
             value: 0
           }
 
