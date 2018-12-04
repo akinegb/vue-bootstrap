@@ -22,8 +22,7 @@ export default {
   props: ["label", "type", "name", "options"],
   data: ({$options}) => {
     const { propsData: { options } } = $options || {}
-    const selected = options.map(el => el.value ? el.label : null)[0]
-    // const selected = options ? options.map(el => el.value ? el.label : null)[0] : ''
+    const selected = options ? options.filter(el => el.value).map(el => el.label)[0] : []
     return { selected };
   }
 }
