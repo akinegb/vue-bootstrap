@@ -9,6 +9,7 @@ localVue.use(Vuex);
 
 describe("Dropdown select widget", () => {
   let propData;
+  
   beforeEach(() => {
     propData = {
       options: []
