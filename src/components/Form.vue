@@ -20,7 +20,7 @@
         v-else-if=" item.type == 'checkbox' "
         v-bind="item"/>
     </div>
-    <Button class="left margin" name="Next"/>
+    <Button class="margin" name="Next"/>
   </form>
 </template>
 
