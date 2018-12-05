@@ -4,44 +4,21 @@
       v-for="(item, index) in questions"
       v-bind:key="index"
       v-bind:index="index">
-      <div v-if=" item.type == 'text' ">
-        <Input
-          v-bind:type="item.type"
-          v-bind:label="item.label"
-          v-bind:value="item.value"
-          v-bind:field="item"/>
-      </div>
-      <div v-if=" item.type == 'select' ">
-        <Dropdown
-          v-bind:type="item.type"
-          v-bind:label="item.label"
-          v-bind:options="item.options"
-          v-bind:name="item.name"
-          v-bind:field="item"/>
-      </div>
-      <div v-if=" item.type == 'textarea' ">
-        <Textarea
-          v-bind:type="item.type"
-          v-bind:label="item.label"
-          v-bind:value="item.value"
-          v-bind:field="item"/>
-      </div>
-      <div v-if=" item.type == 'radio' ">
-        <RadioButton
-          v-bind:type="item.type"
-          v-bind:label="item.label"
-          v-bind:options="item.options"
-          v-bind:name="item.name"
-          v-bind:RadioButton="item"/>
-      </div>
-      <div v-if=" item.type == 'checkbox' ">
-        <CheckBox
-          v-bind:type="item.type"
-          v-bind:label="item.label"
-          v-bind:options="item.options"
-          v-bind:name="item.name"
-          v-bind:CheckBox="item"/>
-      </div>
+      <Input
+        v-if=" item.type == 'text' "
+        v-bind="item"/>
+      <Dropdown
+        v-else-if=" item.type == 'select' "
+        v-bind="item"/>
+      <Textarea
+        v-else-if=" item.type == 'textarea' "
+        v-bind="item"/>
+      <RadioButton
+        v-else-if=" item.type == 'radio' "
+        v-bind="item"/>
+      <CheckBox
+        v-else-if=" item.type == 'checkbox' "
+        v-bind="item"/>
     </div>
     <Button class="left margin" name="Next"/>
   </form>
