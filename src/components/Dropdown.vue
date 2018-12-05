@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-  name: "RadioButton",
+  name: "Dropdown",
   props: ["label", "type", "name", "options"],
   data: ({$options}) => {
     const { propsData: { options } } = $options || {}
