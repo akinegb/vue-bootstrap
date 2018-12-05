@@ -21,7 +21,7 @@ export default {
   props: ["label", "type", "name", "options", "value"],
   data: ({$options}) => {
     const { propsData: { options } } = $options || {}
-    const checked = options ? options.map(el => el.value ? el.label : null) : []
+    const checked = options ? options.filter(el => el.value).map(el => el.label) : []
     return { checked };
   }
 }
