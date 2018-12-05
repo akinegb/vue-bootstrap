@@ -1,7 +1,8 @@
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 // import { renderToString } from "@vue/server-test-utils";
 import Vuex from "vuex";
 import Form from "../src/components/Form.vue";
+import { state } from "../src/store/initialState";
 
 const localVue = createLocalVue();
 
@@ -11,12 +12,12 @@ describe("Form component", () => {
   let store;
   beforeEach(() => {
     store = new Vuex.Store({
-      state: {}
+      state
     })
   });
 
   it("should contain aleast one field", () => {
-    const wrapper = shallowMount(Form, { store, localVue });
-    expect(wrapper.findAll(".form").length).toEqual(1);
+    const wrapper = mount(Form, { store, localVue });
+    expect(wrapper.findAll(".field").length).toBeGreaterThan(0);
   });
 });

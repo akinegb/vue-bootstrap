@@ -7,8 +7,8 @@ const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-describe("Radio buttons", () => {
-  let propData;
+describe("Checkbox component", () => {
+  let propData
   beforeEach(() => {
     propData = {
       options: []

@@ -1,15 +1,11 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import { render } from "@vue/server-test-utils"
-import Vuex from "vuex";
 import Dropdown from "../src/components/Dropdown.vue";
 
-const localVue = createLocalVue();
-
-localVue.use(Vuex);
 
 describe("Dropdown select widget", () => {
   let propData;
-  
+
   beforeEach(() => {
     propData = {
       options: []
@@ -17,7 +13,7 @@ describe("Dropdown select widget", () => {
   });
 
   it("mounted as expected", () => {
-    const wrapper = mount(Dropdown, { propData });
+    const wrapper = shallowMount(Dropdown, { propData });
     expect(wrapper.findAll(".dropdown-group").length).toEqual(1)
   });
 });
