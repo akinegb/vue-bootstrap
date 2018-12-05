@@ -18,6 +18,6 @@ describe("Form component", () => {
 
   it("should contain aleast one field", () => {
     const wrapper = mount(Form, { store, localVue });
-    expect(wrapper.findAll(".field").length).toBeGreaterThan(0);
+    expect(wrapper.findAll("div").length).toBeGreaterThan(0);
   });
 });
