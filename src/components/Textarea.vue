@@ -12,7 +12,7 @@
 </template>
 <script>
 export default {
-  name: "Input",
+  name: "Textarea",
   props: ["label", "type", "value"],
   methods: {
     setStatus: function (e) {
