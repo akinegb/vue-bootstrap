@@ -1,13 +1,14 @@
 <template>
-  <div class="home">
-    <h1>Basics</h1>
+  <BasePage title="Basics">
     <Form/>
-  </div>
+  </BasePage>
 </template>
 <script>
 import Form from '../components/Form'
+import BasePage from './BasePage'
 
 export default {
-  components: { Form }
+  name: 'Section',
+  components: { Form, BasePage }
 }
 </script>
