@@ -16,7 +16,7 @@
 </script>
 <style lang="scss">
   .footer {
-    background: #e8e8e8;
+    background: #393939;
 
     &-container {
       display: flex;

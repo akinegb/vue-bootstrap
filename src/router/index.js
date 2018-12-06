@@ -20,15 +20,15 @@ export default new Router({
       component: Preferences
     },
     {
-      path: '/dashboard',
+      path: '/',
       name: 'dashboard',
       component: Dashboard
     },
     {
-      path: '/assessment/:assessmentid',
+      path: '/assessment/:assessmentid/:section/:questionid',
       name: 'assessment',
       component: Form
     },
-    { path: '/', redirect: '/assessment/897281' }
+    { path: '/assessment*', redirect: '/assessment/897281/basics/0' }
   ]
 })

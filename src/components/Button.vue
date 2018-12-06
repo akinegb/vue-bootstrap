@@ -1,11 +1,14 @@
 <template>
-  <button v-on:click="submit('submit')">{{name}}</button>
+  <button v-on:click="onClick">{{name}}</button>
 </template>
 <script>
   export default {
-    props: ["name"],
+    props: ["name", "click"],
     methods: {
-      submit: () => {
+      onClick (e) {
+        const { $options: { propsData: { click }} } = this || {}
+        e.preventDefault()
+        click()
       }
     }
   }
@@ -17,6 +20,12 @@
     background: black;
     padding: 15px 35px;
     font-size: 1em;
+
+    &:focus {
+      outline: 0 transparent solid;
+      transition: all 500ms;
+      background: lighten(black, 10%)
+    }
 
     &.left {
       float: left;

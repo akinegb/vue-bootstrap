@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
 
   .base {
-    min-height: calc(100vh - 360px);
+    min-height: calc(100vh - 320px);
   }
 
   .container {
@@ -43,6 +43,7 @@ export default {
       bottom: 0;
       left: 0;
       opacity: .6;
+      z-index: -99;
       background-image: linear-gradient(#000, transparent);
     }
   }

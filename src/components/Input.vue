@@ -42,7 +42,8 @@ export default {
     }
 
     input {
-      border-color: #d4d4d4;
+      background: transparent;
+      border-color: #8f8f8f;
       border-width: 0 0 1px 0;
       border-style: solid;
       display: inline-block;
