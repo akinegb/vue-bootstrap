@@ -1,26 +1,23 @@
 <template>
   <form class="form">
-    <div
-      v-for="(item, index) in questions"
-      v-bind:key="index"
-      v-bind:index="index">
+    <Question
+      v-bind="form">
       <Input
-        v-if=" item.type == 'text' "
-        v-bind="item"/>
+        v-if=" form.question.type == 'text' "
+        v-bind="form.question"/>
       <Dropdown
-        v-else-if=" item.type == 'select' "
-        v-bind="item"/>
+        v-else-if=" form.question.type == 'select' "
+        v-bind="form.question"/>
       <Textarea
-        v-else-if=" item.type == 'textarea' "
-        v-bind="item"/>
+        v-else-if=" form.question.type == 'textarea' "
+        v-bind="form.question"/>
       <RadioButton
-        v-else-if=" item.type == 'radio' "
-        v-bind="item"/>
+        v-else-if=" form.question.type == 'radio' "
+        v-bind="form.question"/>
       <CheckBox
-        v-else-if=" item.type == 'checkbox' "
-        v-bind="item"/>
-    </div>
-    <Button class="margin" name="Next"/>
+        v-else-if=" form.question.type == 'checkbox' "
+        v-bind="form.question"/>
+    </Question>
   </form>
 </template>
 
@@ -30,13 +27,41 @@ import Textarea from "./Textarea";
 import CheckBox from "./CheckBox";
 import RadioButton from "./RadioButton";
 import Input from "./Input";
-import Button from "./Button";
+import Question from "./Question";
 export default {
-  components: { Input, Button, RadioButton, CheckBox, Textarea, Dropdown },
+  components: { Input, RadioButton, CheckBox, Textarea, Dropdown, Question },
+  updated: function () {
+
+    const { state: { form: { currentProgress: { step } }, cases } } = this.$store || {}
+    const id = cases[0].id // temporary hard-code id
+    this.nextRoute = `/assessment/${id}/basics/${step}`;
+    this.$router.push(this.nextRoute)
+
+  },
+  watch: {
+    $route () {
+      this.$store.dispatch('updateStep', { step: this.$route.params.questionid })
+    }
+  },
   computed: {
-    questions: ({$store}) => {
-      const { state: { questions } } = $store || {}
-      return questions
+    form ({$store}) {
+      const { state: { form: { sections: { basics }, currentProgress: { step } } } } = $store || {}
+
+      const nextStep = () => {
+        $store.dispatch('nextStep')
+      }
+
+      const backStep = () => {
+        $store.dispatch('backStep')
+      }
+
+      return {
+        question: basics[step],
+        questions: basics,
+        nextStep,
+        backStep,
+        step
+      }
     }
   }
 }
